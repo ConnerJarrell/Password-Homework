@@ -11,20 +11,14 @@ function writePassword() {
     var number = confirm("Would you like to use numbers?");
     var symbol = confirm("Would you like to use special characters?");
 
-    while (!uppers && !lowers && !numbers && !symbols) {
-        alert("You must select at least one character type!");
-        lower = confirm("Would you like to use lowercase letters?");
-        upper = confirm("Would you like to use uppercase letters?")
-        number = confirm("Would you like to use numbers?");
-        symbol = confirm("Would you like to use special characters?");
-    }
 
-
-    //   var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+
+    // This will actually generate the random password
     function generatePassword() {
         var pString = "";
         var password = "";
@@ -32,6 +26,8 @@ function writePassword() {
         var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         var numbers = "1234567890";
         var symbols = "@!#$%^&*()_+";
+
+        // ?if else statements
 
         if ((number == true) && (symbol == false) && (lower == false) && (upper == false)){
             pString += numbers;
@@ -43,6 +39,8 @@ function writePassword() {
             pString += numbers += symbols += lowers += uppers;
         }
 
+        //  this will help in keeping the requested length
+
         for (var i =0; i < length; i++){
             var j = Math.floor(Math.random() * pString.length);
             var k = pString.charAt(j);
@@ -50,10 +48,10 @@ function writePassword() {
             password += k;
         }
 
+        // For results
+
         return password;
     }
-
-    console.log("password: " + password);
     
 
 }
